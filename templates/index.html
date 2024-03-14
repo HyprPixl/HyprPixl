@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HyprPixl - Landing Page</title>
+    <link rel="icon" type="image/png" href="static/images/Logo.png">
+
+
     <style>
-        @keyframes rotate {
+       @keyframes rotate {
             0% {
                 transform: rotate(0deg);
             }
@@ -25,13 +28,13 @@
 
         .gradient {
             --size: 250px;
-            --speed: 50s;
+            --speed: 15s;
             --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
 
             width: var(--size);
             height: var(--size);
             filter: blur(calc(var(--size) / 5));
-            background-image: linear-gradient(hsl(158, 82%, 57%, 85%), hsl(252, 82%, 57%));
+            background-image: linear-gradient(hsla(0, 100%, 18%, 0.85), hsl(52, 99%, 35%));
             animation: rotate var(--speed) var(--easing) alternate infinite;
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         }
@@ -50,52 +53,69 @@
             place-content: center;
             align-items: center;
             overflow: hidden;
-            height: 100vh; /* Ensure the body takes up the full height of the viewport */
+            height: 100vh;
             margin: 0;
         }
 
-        /* This is just to transition when you change the viewport size. */
         * {
             transition: all 0.25s ease-out;
         }
+        .top-message {
+            position: absolute;
+            top: 100px; /* Increased space from the top */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.4); /* Dark background for contrast */
+            color: #ffffff; /* White text for readability */
+            padding: 15px 30px; /* Increased padding for more 'breathing room' */
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            z-index: 20; /* Above the other content */
+            width: auto; /* Auto-width based on content size */
+            max-width: 90%; /* Don't let the message span the full width of the window */
+            text-align: center;
+            font-size: 1.2em; /* Larger text size for visibility */
+            font-weight: bold; /* Make text bold */
+            border: 2px solid #ffffff; /* White border for more emphasis */
+            box-sizing: border-box; /* To include padding and border in the element's total width and height */
+        }
+
 
         .glassy-box {
             width: 300px;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.5); /* Adjust the transparency here */
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.2); /* Solid white background */
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow for better contrast */
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             cursor: pointer;
             transition: box-shadow 0.3s;
-        }
-
-        .glassy-box:hover {
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            z-index: 10; /* Make sure it's above the animated background */
         }
 
         .logo {
             width: 100px;
             height: auto;
             margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Ensure logo has a solid background */
+            border-radius: 10px; /* Optional: if you want rounded corners for the logo */
         }
 
         .contact-info {
-            color: #fff;
+            color: #000000; /* Solid black text for readability */
         }
 
         .contact-info p {
             margin: 5px 0;
         }
 
-        .contact-info a {
-            color: #fff;
-            text-decoration: underline;
+        .glassy-box:hover {
+            box-shadow: 0 0 30px rgba(255, 255, 235, 0.9);
         }
+
     </style>
 </head>
 <body>
@@ -103,14 +123,18 @@
 <div class="animated-background">
     <div class="gradient"></div>
 </div>
-
+<!-- Top message indicating limited openings -->
+<div class="top-message">
+    Limited openings remaining for June and July!
+</div>
 <div class="glassy-box">
     <a href="https://www.linkedin.com/company/hyprpixl/" target="_blank" rel="noopener noreferrer">
         <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" class="logo">
         <div class="contact-info">
             <p>Contact Information</p>
-            <p>Email: contact@hyprpixl.com</p>
-            <p>Phone: 123-456-7890</p>
+            <p>HyprPixlStudios@gmail.com</p>
+            <p>Instagram: @hyprpixlstudios</p>
+            <p>Linkedin: HyprPixl</p>
         </div>
     </a>
 </div>
