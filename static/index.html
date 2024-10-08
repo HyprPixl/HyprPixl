@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyprPixl - Landing Page</title>
+    <title>HyprPixl - Bringing Your Ideas to Life</title>
     <link rel="icon" type="image/png" href="images/Logo.png">
-
 
     <style>
        @keyframes rotate {
@@ -24,6 +23,7 @@
             place-content: center;
             align-items: center;
             overflow: hidden;
+            z-index: -1;
         }
 
         .gradient {
@@ -50,102 +50,163 @@
             font-family: Arial, sans-serif;
             color: #e0e0e0;
             display: flex;
-            place-content: center;
+            flex-direction: column;
             align-items: center;
             overflow: hidden;
             height: 100vh;
             margin: 0;
+            padding: 0;
         }
 
         * {
             transition: all 0.25s ease-out;
+            box-sizing: border-box;
         }
+
         .top-message {
             position: absolute;
-            top: 100px; /* Increased space from the top */
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.4); /* Dark background for contrast */
-            color: #ffffff; /* White text for readability */
-            padding: 15px 30px; /* Increased padding for more 'breathing room' */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            padding: 15px 30px;
             border-radius: 15px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-            z-index: 20; /* Above the other content */
-            width: auto; /* Auto-width based on content size */
-            max-width: 90%; /* Don't let the message span the full width of the window */
+            z-index: 20;
+            max-width: 90%;
             text-align: center;
-            font-size: 1.2em; /* Larger text size for visibility */
-            font-weight: bold; /* Make text bold */
-            border: 2px solid #ffffff; /* White border for more emphasis */
-            box-sizing: border-box; /* To include padding and border in the element's total width and height */
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 2px solid #ffffff;
         }
 
-
         .glassy-box {
-            width: 300px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.2); /* Solid white background */
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            margin-top: 150px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow for better contrast */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             text-align: center;
-            cursor: pointer;
             transition: box-shadow 0.3s;
-            z-index: 10; /* Make sure it's above the animated background */
+            z-index: 10;
+        }
+
+        .glassy-box:hover {
+            box-shadow: 0 0 30px rgba(255, 255, 235, 0.9);
         }
 
         .logo {
-            width: 100px;
+            width: 120px;
             height: auto;
             margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.2); /* Ensure logo has a solid background */
-            border-radius: 10px; /* Optional: if you want rounded corners for the logo */
+        }
+
+        .headline {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .subheadline {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ffcc00;
+            color: #000000;
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button:hover {
+            background-color: #e6b800;
         }
 
         .contact-info {
-            color: #000000; /* Solid black text for readability */
+            color: #ffffff;
+            font-size: 1em;
         }
 
         .contact-info p {
             margin: 5px 0;
         }
 
-        .glassy-box:hover {
-            box-shadow: 0 0 30px rgba(255, 255, 235, 0.9);
+        .contact-info a {
+            color: #ffcc00;
+            text-decoration: none;
         }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Remove blue underline from email and links */
         a {
             text-decoration: none;
-            color: inherit; /* This will keep the text color as is */
+            color: inherit;
         }
-        
+
         a:hover {
-            color: #ffffff; /* You can customize this hover color if you like */
+            color: #ffcc00;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .headline {
+                font-size: 1.5em;
+            }
+
+            .subheadline {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .contact-info {
+                font-size: 0.9em;
+            }
         }
 
     </style>
 </head>
 <body>
 
-<div class="animated-background">
-    <div class="gradient"></div>
-</div>
-<!-- Top message indicating limited openings -->
-<div class="top-message">
-    Curretly have space for 4 hours/week of work on YOUR idea!
-</div>
-<div class="glassy-box">
-    <a href="https://www.linkedin.com/company/hyprpixl/" target="_blank" rel="noopener noreferrer">
+    <div class="animated-background">
+        <div class="gradient"></div>
+    </div>
+
+    <!-- Top message indicating limited openings -->
+    <div class="top-message">
+        Currently have space for 4 hours/week to work on <strong>YOUR</strong> idea!
+    </div>
+
+    <div class="glassy-box">
         <img src="images/Logo.png" alt="Logo" class="logo">
-        <div class="contact-info">
-            <p>Contact Information</p>
-            <p>HyprPixlStudios@gmail.com</p>
-            <p>Instagram: @hyprpixlstudios</p>
-            <p>Linkedin: HyprPixl</p>
+        <h1 class="headline">Bringing Your Ideas to Life</h1>
+        <p class="subheadline">Expert digital solutions tailored just for you.</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+
+        <div class="contact-info" id="contact">
+            <p><strong>Contact Information</strong></p>
+            <p>Email: <a href="mailto:HyprPixlStudios@gmail.com">HyprPixlStudios@gmail.com</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/hyprpixlstudios/" target="_blank">@hyprpixlstudios</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/company/hyprpixl/" target="_blank">HyprPixl</a></p>
         </div>
-    </a>
-</div>
+    </div>
 
 </body>
 </html>
