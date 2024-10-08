@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="images/Logo.png">
 
     <style>
-       @keyframes rotate {
+        @keyframes rotate {
             0% {
                 transform: rotate(0deg);
             }
@@ -65,7 +65,7 @@
 
         .top-message {
             position: absolute;
-            top: 50px; /* Adjust as needed */
+            top: 100px; /* Adjust as needed */
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(0, 0, 0, 0.6);
@@ -81,6 +81,32 @@
             border: 2px solid #ffffff;
         }
 
+        /* Main content glassy box */
+        .glassy-box {
+            margin-top: 250px; /* Moved down further than the top message */
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s;
+            z-index: 10;
+        }
+
+        .glassy-box:hover {
+            box-shadow: 0 0 30px rgba(255, 255, 235, 0.9);
+        }
+
+        /* Layout for logo, headline, and subheadline */
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
         /* Glassy box for the logo */
         .logo-box {
             width: 150px;
@@ -92,31 +118,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 100px; /* Adjust as needed */
-            z-index: 10;
         }
 
         .logo {
             width: 100%;
             height: auto;
-        }
-
-        .glassy-box {
-            width: 80%;
-            max-width: 600px;
-            padding: 30px;
-            margin-top: 30px; /* Adjust as needed */
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transition: box-shadow 0.3s;
-            z-index: 10;
-        }
-
-        .glassy-box:hover {
-            box-shadow: 0 0 30px rgba(255, 255, 235, 0.9);
         }
 
         .headline {
@@ -127,7 +133,6 @@
 
         .subheadline {
             font-size: 1.2em;
-            margin-bottom: 30px;
             color: #cccccc;
         }
 
@@ -140,7 +145,7 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin-top: 30px;
         }
 
         .cta-button:hover {
@@ -150,6 +155,8 @@
         .contact-info {
             color: #ffffff;
             font-size: 1em;
+            text-align: center;
+            margin-top: 30px;
         }
 
         .contact-info p {
@@ -163,16 +170,6 @@
 
         .contact-info a:hover {
             text-decoration: underline;
-        }
-
-        /* Remove blue underline from email and links */
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        a:hover {
-            color: #ffcc00;
         }
 
         /* Responsive adjustments */
@@ -197,7 +194,11 @@
             .logo-box {
                 width: 120px;
                 padding: 15px;
-                margin-top: 80px;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -214,16 +215,19 @@
         Currently have space for 4 hours/week to work on <strong>YOUR</strong> idea!
     </div>
 
-    <!-- Glassy box for the logo -->
-    <div class="logo-box">
-        <img src="images/Logo.png" alt="Logo" class="logo">
-    </div>
-
     <!-- Main content glassy box -->
     <div class="glassy-box">
-        <h1 class="headline">Bringing Your Ideas to Life</h1>
-        <p class="subheadline">Expert digital solutions tailored just for you.</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <div class="content">
+            <!-- Glassy box for the logo -->
+            <div class="logo-box">
+                <img src="images/Logo.png" alt="Logo" class="logo">
+            </div>
+            <div>
+                <h1 class="headline">Your software project, on the double.</h1>
+                <p class="subheadline">Make your business run not walk.</p>
+            </div>
+        </div>
+        <!--a href="#contact" class="cta-button">Get Started</a-->
 
         <div class="contact-info" id="contact">
             <p><strong>Contact Information</strong></p>
